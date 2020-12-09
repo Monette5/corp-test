@@ -1,6 +1,2 @@
 [project]
 name = corp-test
-
-[servers.production]
-target = ghpages+ssh://Monette5/Monette5.github.io
-
