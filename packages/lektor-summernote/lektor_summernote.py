@@ -16,11 +16,11 @@ TEMPLATE = '''
 <link rel="stylesheet" href="/static/summernote.css" rel="stylesheet">
 <script type="text/javascript" src="/static/summernote.js"></script>
 <script type="text/javascript" src="/static/summernoteCall.js"></script>
- 
+
+                
 {% endblock %}
 '''
-
-
+   
 
 def patched_endpoint(*args, **kwargs):
     return render_template_string(TEMPLATE)

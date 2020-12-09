@@ -103,7 +103,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 52);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -9997,14 +9997,14 @@ external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default.a.summe
 
 /***/ }),
 
-/***/ 5:
+/***/ 4:
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
 
 /***/ }),
 
-/***/ 53:
+/***/ 52:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10018,28 +10018,28 @@ var external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default = /
 // EXTERNAL MODULE: ./src/js/base/renderer.js
 var renderer = __webpack_require__(1);
 
-// CONCATENATED MODULE: ./src/js/bs4/ui.js
+// CONCATENATED MODULE: ./src/js/bs3/ui.js
 function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 
 
-var editor = renderer["a" /* default */].create('<div class="note-editor note-frame card"/>');
-var toolbar = renderer["a" /* default */].create('<div class="note-toolbar card-header" role="toolbar"/>');
+var editor = renderer["a" /* default */].create('<div class="note-editor note-frame panel panel-default"/>');
+var toolbar = renderer["a" /* default */].create('<div class="panel-heading note-toolbar" role="toolbar"/>');
 var editingArea = renderer["a" /* default */].create('<div class="note-editing-area"/>');
 var codable = renderer["a" /* default */].create('<textarea class="note-codable" aria-multiline="true"/>');
-var editable = renderer["a" /* default */].create('<div class="note-editable card-block" contentEditable="true" role="textbox" aria-multiline="true"/>');
+var editable = renderer["a" /* default */].create('<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"/>');
 var statusbar = renderer["a" /* default */].create(['<output class="note-status-output" role="status" aria-live="polite"></output>', '<div class="note-statusbar" role="status">', '<div class="note-resizebar" aria-label="Resize">', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '<div class="note-icon-bar"></div>', '</div>', '</div>'].join(''));
 var airEditor = renderer["a" /* default */].create('<div class="note-editor note-airframe"/>');
 var airEditable = renderer["a" /* default */].create(['<div class="note-editable" contentEditable="true" role="textbox" aria-multiline="true"></div>', '<output class="note-status-output" role="status" aria-live="polite"></output>'].join(''));
 var buttonGroup = renderer["a" /* default */].create('<div class="note-btn-group btn-group">');
-var dropdown = renderer["a" /* default */].create('<div class="note-dropdown-menu dropdown-menu" role="list">', function ($node, options) {
+var dropdown = renderer["a" /* default */].create('<ul class="note-dropdown-menu dropdown-menu">', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
     var option = _typeof(item) === 'object' ? item.option : undefined;
     var dataValue = 'data-value="' + value + '"';
     var dataOption = option !== undefined ? ' data-option="' + option + '"' : '';
-    return '<a class="dropdown-item" href="#" ' + (dataValue + dataOption) + ' role="listitem" aria-label="' + value + '">' + content + '</a>';
+    return '<li aria-label="' + value + '"><a href="#" ' + (dataValue + dataOption) + '>' + content + '</a></li>';
   }).join('') : options.items;
   $node.html(markup).attr({
     'aria-label': options.title
@@ -10050,15 +10050,15 @@ var dropdown = renderer["a" /* default */].create('<div class="note-dropdown-men
   }
 });
 
-var dropdownButtonContents = function dropdownButtonContents(contents) {
-  return contents;
+var dropdownButtonContents = function dropdownButtonContents(contents, options) {
+  return contents + ' ' + icon(options.icons.caret, 'span');
 };
 
-var dropdownCheck = renderer["a" /* default */].create('<div class="note-dropdown-menu dropdown-menu note-check" role="list">', function ($node, options) {
+var dropdownCheck = renderer["a" /* default */].create('<ul class="note-dropdown-menu dropdown-menu note-check">', function ($node, options) {
   var markup = Array.isArray(options.items) ? options.items.map(function (item) {
     var value = typeof item === 'string' ? item : item.value || '';
     var content = options.template ? options.template(item) : item;
-    return '<a class="dropdown-item" href="#" data-value="' + value + '" role="listitem" aria-label="' + item + '">' + icon(options.checkClassName) + ' ' + content + '</a>';
+    return '<li aria-label="' + item + '"><a href="#" data-value="' + value + '">' + icon(options.checkClassName) + ' ' + content + '</a></li>';
   }).join('') : options.items;
   $node.html(markup).attr({
     'aria-label': options.title
@@ -10076,7 +10076,7 @@ var dialog = renderer["a" /* default */].create('<div class="modal note-modal" a
   $node.attr({
     'aria-label': options.title
   });
-  $node.html(['<div class="modal-dialog">', '<div class="modal-content">', options.title ? '<div class="modal-header">' + '<h4 class="modal-title">' + options.title + '</h4>' + '<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</button>' + '</div>' : '', '<div class="modal-body">' + options.body + '</div>', options.footer ? '<div class="modal-footer">' + options.footer + '</div>' : '', '</div>', '</div>'].join(''));
+  $node.html(['<div class="modal-dialog">', '<div class="modal-content">', options.title ? '<div class="modal-header">' + '<button type="button" class="close" data-dismiss="modal" aria-label="Close" aria-hidden="true">&times;</button>' + '<h4 class="modal-title">' + options.title + '</h4>' + '</div>' : '', '<div class="modal-body">' + options.body + '</div>', options.footer ? '<div class="modal-footer">' + options.footer + '</div>' : '', '</div>', '</div>'].join(''));
 });
 var popover = renderer["a" /* default */].create(['<div class="note-popover popover in">', '<div class="arrow"></div>', '<div class="popover-content note-children-container"></div>', '</div>'].join(''), function ($node, options) {
   var direction = typeof options.direction !== 'undefined' ? options.direction : 'bottom';
@@ -10086,8 +10086,8 @@ var popover = renderer["a" /* default */].create(['<div class="note-popover popo
     $node.find('.arrow').hide();
   }
 });
-var ui_checkbox = renderer["a" /* default */].create('<div class="form-check"></div>', function ($node, options) {
-  $node.html(['<label class="form-check-label"' + (options.id ? ' for="note-' + options.id + '"' : '') + '>', '<input type="checkbox" class="form-check-input"' + (options.id ? ' id="note-' + options.id + '"' : ''), options.checked ? ' checked' : '', ' aria-label="' + (options.text ? options.text : '') + '"', ' aria-checked="' + (options.checked ? 'true' : 'false') + '"/>', ' ' + (options.text ? options.text : '') + '</label>'].join(''));
+var ui_checkbox = renderer["a" /* default */].create('<div class="checkbox"></div>', function ($node, options) {
+  $node.html(['<label' + (options.id ? ' for="note-' + options.id + '"' : '') + '>', '<input type="checkbox"' + (options.id ? ' id="note-' + options.id + '"' : ''), options.checked ? ' checked' : '', ' aria-checked="' + (options.checked ? 'true' : 'false') + '"/>', options.text ? options.text : '', '</label>'].join(''));
 });
 
 var icon = function icon(iconClassName, tagName) {
@@ -10111,8 +10111,8 @@ var ui_ui = function ui(editorOptions) {
     dropdownCheck: dropdownCheck,
     dialog: dialog,
     popover: popover,
-    icon: icon,
     checkbox: ui_checkbox,
+    icon: icon,
     options: editorOptions,
     palette: function palette($node, options) {
       return renderer["a" /* default */].create('<div class="note-color-palette"/>', function ($node, options) {
@@ -10145,7 +10145,7 @@ var ui_ui = function ui(editorOptions) {
       })($node, options);
     },
     button: function button($node, options) {
-      return renderer["a" /* default */].create('<button type="button" class="note-btn btn btn-light btn-sm" tabindex="-1">', function ($node, options) {
+      return renderer["a" /* default */].create('<button type="button" class="note-btn btn btn-default btn-sm" tabindex="-1">', function ($node, options) {
         if (options && options.tooltip) {
           $node.attr({
             title: options.tooltip,
@@ -10204,31 +10204,25 @@ var ui_ui = function ui(editorOptions) {
   };
 };
 
-/* harmony default export */ var bs4_ui = (ui_ui);
+/* harmony default export */ var bs3_ui = (ui_ui);
 // EXTERNAL MODULE: ./src/js/base/settings.js + 37 modules
 var settings = __webpack_require__(3);
 
-// EXTERNAL MODULE: ./src/styles/summernote-bs4.scss
-var summernote_bs4 = __webpack_require__(5);
+// EXTERNAL MODULE: ./src/styles/summernote-bs3.scss
+var summernote_bs3 = __webpack_require__(4);
 
-// CONCATENATED MODULE: ./src/js/bs4/settings.js
+// CONCATENATED MODULE: ./src/js/bs3/settings.js
 
 
 
 
 external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default.a.summernote = external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default.a.extend(external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default.a.summernote, {
-  ui_template: bs4_ui,
-  "interface": 'bs4'
+  ui_template: bs3_ui,
+  "interface": 'bs3'
 });
-external_root_jQuery_commonjs2_jquery_commonjs_jquery_amd_jquery_default.a.summernote.options.styleTags = ['p', {
-  title: 'Blockquote',
-  tag: 'blockquote',
-  className: 'blockquote',
-  value: 'blockquote'
-}, 'pre', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
 
 /***/ })
 
 /******/ });
 });
-//# sourceMappingURL=summernote-bs4.js.map
+//# sourceMappingURL=summernote.js.map
