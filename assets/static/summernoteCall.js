@@ -1,6 +1,6 @@
 const markupStr = $('#summernote').summernote('code');
 const savebtn = document.querySelector('button.btn.btn-primary');
-const editbtn = document.querySelector('.nav li:nth-child(1)');
+const editbtn = document.querySelector('.nav li:nth-child(1)')
 function save() {
     $(savebtn).click(function () {
         $('textarea.form-control').text(markupStr);
@@ -28,35 +28,20 @@ function example(element) {
         return true;
     }
 }
-//@TODO Loop the button group and set the textarea for each page selected and
-// find a better way to wait for the edit page to be loaded
-$(editbtn).click(function () {
-    if (!example('edit')) {
-        setTimeout(function () {
-            const elem = document.querySelector('textarea.form-control');
-            addSummer(elem);
-        }, 5000);
-    } else if (example('edit')) {
-        $(document).ready(function () {
-            const elem = document.querySelector('textarea.form-control');
+
+      $(editbtn).click(function () {   
+            if (example('edit')){
+                $(document).ready(function () {
+                const elem = document.querySelector('textarea.form-control');
             addSummer(elem);
         });
-    }
-
+            }
+        
 });
 
 $(savebtn).click(function () {
     save();
 });
-
-
-
-
-
-
-
-
-
 
 
 
