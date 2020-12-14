@@ -1,44 +1,59 @@
-function addElement (el) { 
-const elem = document.querySelector('textarea.form-control');
-    // create a new div element 
-const newDiv = document.createElement("div"); 
-newDiv.id = "summernote";
-el.appendChild(newDiv);
+const markupStr = $('#summernote').summernote('code');
+const savebtn = document.querySelector('button.btn.btn-primary');
+const editbtn = document.querySelector('.nav li:nth-child(1)');
+function save() {
+    $(savebtn).click(function () {
+        $('textarea.form-control').text(markupStr);
+        alert('saved');
+    });
 }
-//*[@id="dash"]/div/div/div/div/div/form/div[2]/div/dl/dd
-
-// create an observer instance
-  function log(mutations) {
-    for (let mutation of mutations) {
-        if (mutation.type === 'childList') {
-            console.log(mutation);
-        }
-    }
-}
-let observer = new MutationObserver(log);
-// onload = function() {
-//     observer.observe(elem, {
-//         childList: true
-//     });
-
-// }
-    $(document).ready(function() {
-    const elem = document.querySelector('textarea.form-control');
-        // create a new div element 
-    //const newDiv = document.createElement("div"); 
-   // newDiv.id = "summernote";
-   // elem.appendChild(newDiv);
-   elem.id = "summernote";
+//
+function addSummer(elem) {
+    elem.id = "summernote";
     $("#summernote").removeClass('display', 'none');
     $("#summernote").addClass('display', 'block');
     $('#summernote').summernote({
         placeholder: 'Hello Bootstrap 4',
         tabsize: 2,
         height: 100
-      });  
     });
-// later, you can stop observing
-observer.disconnect();
+}
+$(document).ready(function () {
+    const elem = document.querySelector('textarea.form-control');
+    addSummer(elem);
+});
+
+function example(element) {
+    if (window.location.href.indexOf(element) > -1) {
+        return true;
+    }
+}
+//@TODO Loop the button group and set the textarea for each page selected and
+// find a better way to wait for the edit page to be loaded
+$(editbtn).click(function () {
+    if (!example('edit')) {
+        setTimeout(function () {
+            const elem = document.querySelector('textarea.form-control');
+            addSummer(elem);
+        }, 5000);
+    } else if (example('edit')) {
+        $(document).ready(function () {
+            const elem = document.querySelector('textarea.form-control');
+            addSummer(elem);
+        });
+    }
+
+});
+
+$(savebtn).click(function () {
+    save();
+});
+
+
+
+
+
+
 
 
 

@@ -3,4 +3,10 @@
 {% block body %}
   <h2>{{ this.title }}</h2>
   {{ this.body }}
+  {% set my_image = site.get('/').attachments.get('cat2.jpg') %}
+   <div class="image"><img src="{{ my_image|url }}"></div>
+<div style="
+  background: url({{ my_image|url }});
+  background-size: {{ my_image.width / 2 }}px {{ my_image.height / 2 }}px
+"></div>
 {% endblock %}
