@@ -1,13 +1,20 @@
+
 const markupStr = $('#summernote').summernote('code');
-const savebtn = document.querySelector('button.btn.btn-primary');
-const editbtn = document.querySelector('.nav li:nth-child(1)')
-function save() {
-    $(savebtn).click(function () {
-        $('textarea.form-control').text(markupStr);
-        alert('saved');
+const editbtn = document.querySelector('.nav li:nth-child(1)');
+setBtn();
+function setBtn() {
+    $(document).ready(function () {
+        if (example('edit')) {
+            const btn = document.querySelector('.btn.btn-primary');
+            $(btn).click(function () {
+                const el = document.querySelector('textarea.form-control')
+                const elm = $('note-editable card-block').summernote('code');
+                $(elm).clone().appendTo(el);
+            });
+        }
     });
 }
-//
+
 function addSummer(elem) {
     elem.id = "summernote";
     $("#summernote").removeClass('display', 'none');
@@ -18,6 +25,29 @@ function addSummer(elem) {
         height: 100
     });
 }
+
+$(editbtn).click(function () {
+    $(document).ready(function () {
+        const elem = document.querySelector('textarea.form-control');
+        if (elem !== null) {
+            addSummer(elem);
+        }
+        else {
+            //setTimeout(function () {
+            const myInterval = setInterval(myFunction, 500);
+            function myFunction() {
+                $(document).ready(function () {
+                    const elem = document.querySelector('textarea.form-control');
+                    addSummer(elem);
+                    if (elem !== null) {
+                        clearInterval(myInterval);
+                    }
+                });
+            }
+        }
+    });
+});
+
 $(document).ready(function () {
     const elem = document.querySelector('textarea.form-control');
     addSummer(elem);
@@ -29,19 +59,7 @@ function example(element) {
     }
 }
 
-      $(editbtn).click(function () {   
-            if (example('edit')){
-                $(document).ready(function () {
-                const elem = document.querySelector('textarea.form-control');
-            addSummer(elem);
-        });
-            }
-        
-});
 
-$(savebtn).click(function () {
-    save();
-});
 
 
 
