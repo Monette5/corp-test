@@ -1,20 +1,5 @@
-
 const markupStr = $('#summernote').summernote('code');
 const editbtn = document.querySelector('.nav li:nth-child(1)');
-setBtn();
-function setBtn() {
-    $(document).ready(function () {
-        if (example('edit')) {
-            const btn = document.querySelector('.btn.btn-primary');
-            $(btn).click(function () {
-                const el = document.querySelector('textarea.form-control')
-                const elm = $('note-editable card-block').summernote('code');
-                $(elm).clone().appendTo(el);
-            });
-        }
-    });
-}
-
 function addSummer(elem) {
     elem.id = "summernote";
     $("#summernote").removeClass('display', 'none');
@@ -47,12 +32,23 @@ $(editbtn).click(function () {
         }
     });
 });
+$(document).ready(function () {
+const markupStr = $('#summernote').summernote('code');
+const editbtn = document.querySelector('.nav li:nth-child(1)');
+var btn = $('.btn-primary');
+$(btn).click(function () {
 
+        const el = document.querySelector('textarea.form-control').innerHTML;
+        const elm = $('note-editable card-block').summernote('code');
+        $(elm).clone().appendTo(el);
+
+
+});
+});
 $(document).ready(function () {
     const elem = document.querySelector('textarea.form-control');
     addSummer(elem);
 });
-
 function example(element) {
     if (window.location.href.indexOf(element) > -1) {
         return true;
