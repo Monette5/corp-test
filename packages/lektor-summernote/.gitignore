@@ -1,5 +1,4 @@
-dist
-build
-*.pyc
-*.pyo
-*.egg-info
+/build
+/dist
+/*.egg-info
+/.eggs

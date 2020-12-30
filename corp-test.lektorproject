@@ -1,5 +1,2 @@
 [project]
 name = corp-test
-
-[packages]
-lektor-summernote

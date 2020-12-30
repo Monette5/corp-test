@@ -11,6 +11,8 @@ function addSummer(elem) {
     });
 }
 
+/* this.transitionToAdminPage('.preview', {
+    path: this.getUrlRecordPathWithAlt(path) */
 $(editbtn).click(function () {
     $(document).ready(function () {
         const elem = document.querySelector('textarea.form-control');
@@ -32,29 +34,20 @@ $(editbtn).click(function () {
         }
     });
 });
-$(document).ready(function () {
-const markupStr = $('#summernote').summernote('code');
-const editbtn = document.querySelector('.nav li:nth-child(1)');
-var btn = $('.btn-primary');
-$(btn).click(function () {
 
-        const el = document.querySelector('textarea.form-control').innerHTML;
-        const elm = $('note-editable card-block').summernote('code');
-        $(elm).clone().appendTo(el);
-
-
-});
-});
 $(document).ready(function () {
     const elem = document.querySelector('textarea.form-control');
     addSummer(elem);
 });
+/* $(document).ready(function () {;
+    addElement();
+}); */
 function example(element) {
     if (window.location.href.indexOf(element) > -1) {
         return true;
     }
 }
-
+ 
 
 
 
