@@ -11,7 +11,7 @@ TEMPLATE = '''
 {% block scripts %}
   {{ super() }}
    
- <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
@@ -19,6 +19,7 @@ TEMPLATE = '''
 
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+    <link rel="stylesheet" href='/static/style.css'>
  <script src="/javascripts/disablebuttonsnew.js"></script> 
   <script>
     (new MutationObserver(function() {
@@ -26,20 +27,21 @@ TEMPLATE = '''
             if (e.className === 'form-control') {
             e.id = "summernote";
 
-            var editor = $(e).summernote({
+
+            $('#summernote').summernote({
                 height: 150,   //set editable area's height
                 callbacks: {
                 onChange: function(contents, $editable) {
                     console.log('onChange:', contents, $editable);
+                    console.log(contents);
+                    const nativeTextAreaValueSetter = Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set;
+                    nativeTextAreaValueSetter.call(e, contents);
+                    const inputEvent = new Event('input', { bubbles: true });
+                    inputEvent.simulated = true;
+                    e.dispatchEvent(inputEvent);
                 }
                 }
-                }).on('summernote.change', function(customEvent, contents, $editable) { 
-         });
-        var stuff = $('textarea#summernote.form-control').summernote('code');
-          Object.getOwnPropertyDescriptor(window.HTMLTextAreaElement.prototype, 'value').set.call(e, stuff);
-            let ev = new Event('input', { bubbles: true });
-            ev.simulated = true;
-            e.dispatchEvent(ev);
+                })          
     }; 
     });
     })).observe(
