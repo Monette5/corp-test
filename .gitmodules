@@ -1,0 +1,3 @@
+[submodule "packages/lektor-summernote-plugin"]
+	path = packages/lektor-summernote-plugin
+	url = git@github.com:Monette5/lektor-summernote-plugin.git
