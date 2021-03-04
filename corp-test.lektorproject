@@ -3,3 +3,6 @@ name = corp-test
 
 [packages]
 lektor-summernote
+
+[servers.ghpages]
+target = ghpages://Monette5/Monette5.github.io
