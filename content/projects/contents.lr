@@ -2,8 +2,6 @@ title: Projects
 ---
 body:
 
-This is a list of the projects:
-
-* Project 1
-* Project 2
-* Project 3
+<p><span style="font-family: Tahoma; font-size: 18px;">This is a list of the planned plugins for Summernote:</span></p><ul><li><span style="font-family: Tahoma; font-size: 18px;">Table Styles
+</span></li><li><span style="font-family: Tahoma; font-size: 18px;">Line Styles
+</span></li><li><span style="font-family: Tahoma; font-size: 18px;">Video and Image options</span></li><li><span style="font-family: Tahoma; font-size: 18px;">List Styles</span></li></ul>

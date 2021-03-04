@@ -1,11 +1,14 @@
 <!doctype html>
 <meta charset="utf-8">
 <link rel="stylesheet" href="{{ '/static/style.css'|url }}">
-<title>{% block title %}Welcome{% endblock %} — corp-test</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<title class="navbar">{% block title %}Welcome{% endblock %} Lektor Test Site</title>
 <body>
-  <header>
-    <h1>corp-test</h1>
-    <nav>
+  <header class="navbar">
+    <h1>Lektor Test </h1>
+    <nav class="navbar">
       <ul class="nav navbar-nav">
         <li{% if this._path == '/' %} class="active"{% endif
           %}><a href="{{ '/'|url }}">Welcome</a></li>
@@ -13,7 +16,6 @@
           ['/projects', 'Projects'],
           ['/about', 'About'],
           ['/form', 'Contact'],
-          ['/twocolumn', 'Two Column']
         ] %}
           <li{% if this.is_child_of(href) %} class="active"{% endif
             %}><a href="{{ href|url }}">{{ title }}</a></li>
@@ -21,7 +23,7 @@
       </ul>
     </nav>
   </header>
-  <div class="page">
+  <div class="container">
     {% block body %}{% endblock %}
   </div>
   <footer>

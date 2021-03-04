@@ -8,12 +8,16 @@
     <fieldset>
       <legend>{{ this.form_title }}</legend>
       <div class="form-group">
-        <label for="Field1">Message:</label>
-        <textarea class="form-control" id="Field1" name="Field1" tabindex="1" rows="4" required></textarea>
+        <label for="Field2">Your Email Address:</label>
+        </div>
+        <div class="form-group">
+        <input type="email" class="form-control" value="" name="Field2" id="Field2" tabindex="2" required />
       </div>
       <div class="form-group">
-        <label for="Field2">Your Email Address:</label>
-        <input type="email" class="form-control" value="" name="Field2" id="Field2" tabindex="2" required />
+        <label for="Field1">Message:</label>
+        </div>
+         <div class="form-group">
+        <textarea class="form-control" id="Field1" name="Field1" tabindex="1" rows="4" required>Do Not Fill This Out</textarea>
       </div>
       <div style="position: absolute; left: -5000px;" aria-hidden="true">
         <label for="comment">Do Not Fill This Out</label>
